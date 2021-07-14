@@ -1,3 +1,4 @@
+
 class Solution:
     def hasCycle(self, head):
         if head == None:
