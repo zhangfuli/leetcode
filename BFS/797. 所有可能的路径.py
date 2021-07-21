@@ -1,6 +1,7 @@
 class Solution:
     def dfs(self, graphs):
         result = []
+
         # print(len(graphs))
         def backtrack(track, graphs, dot):
             # print(track)
@@ -9,13 +10,15 @@ class Solution:
                 result.append(track[:])
                 return None
             for i in range(0, len(graphs[dot])):
-                    if graphs[dot][i] != 0:
-                        if i not in track:
-                            track.append(i)
-                            backtrack(track, graphs, i)
-                            track.pop(-1)
+                if graphs[dot][i] != 0:
+                    if i not in track:
+                        track.append(i)
+                        backtrack(track, graphs, i)
+                        track.pop(-1)
+
         backtrack([0], graphs, 0)
         return result
+
     def allPathsSourceTarget(self, graph):
         graphs = [[0 for j in range(len(graph))] for i in range(len(graph))]
 
@@ -25,5 +28,6 @@ class Solution:
                     graphs[index][dot] = 1
         return self.dfs(graphs)
 
+
 solution = Solution()
-solution.allPathsSourceTarget([[4,3,1],[3,2,4],[3],[4],[]])
+print(solution.allPathsSourceTarget([[2], [2], [3], []]))
