@@ -41,4 +41,5 @@ class Solution:
 
 
 solution = Solution()
+# 输入第i个节点的链接的点
 print(solution.find_track([[4, 3, 1], [3, 2, 4], [3], [4], []]))
