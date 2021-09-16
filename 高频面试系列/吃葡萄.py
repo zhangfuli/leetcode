@@ -9,5 +9,6 @@ case = int(input().strip())
 while case:
     nums = list(map(int, input().strip().split(' ')))
     nums.sort()
+    # 构成三角形      构不成三角形，最长边的一半 + 1
     print(max((sum(nums) + 2) // 3, (nums[2] + 1) // 2))
     case -= 1
