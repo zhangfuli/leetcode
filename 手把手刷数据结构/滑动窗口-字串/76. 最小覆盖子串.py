@@ -22,7 +22,7 @@ class Solution:
 
                 if window[s[right]] == need[s[right]]:
                     valid += 1
-
+            # 判断左窗口是否能收缩
             while valid == len(need):
                 if res_len > right - left:
                     res_len = right - left

@@ -14,7 +14,7 @@ class Solution:
                 window[s[right]] = window.get(s[right], 0) + 1
                 if window[s[right]] == need[s[right]]:
                     valid += 1
-
+            # 判断左窗口是否要收缩
             while right - left + 1 >= len(p):
                 if valid == len(need):
                     res.append(left)
