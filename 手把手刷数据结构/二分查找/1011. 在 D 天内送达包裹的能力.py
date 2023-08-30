@@ -1,33 +1,27 @@
 class Solution:
-    def f(self, weights, x):
-        day = 0
-        surplus = x
-
-        i = 0
-        while i < len(weights):
-            if surplus >= weights[i]:
-                surplus -= weights[i]
-            else:
-                day += 1
-                surplus = x
-                i -= 1
-            i += 1
-        if surplus < x:
-            day += 1
-
-        return day
-
     def shipWithinDays(self, weights, days):
         left, right = max(weights), sum(weights)
         while left <= right:
             mid = int(left + (right - left) / 2)
-            if self.f(weights, mid) == days:
+            if self.shipContainer(weights, mid) == days:
                 right = mid - 1
-            elif self.f(weights, mid) > days:
+            elif self.shipContainer(weights, mid) > days:
                 left = mid + 1
-            elif self.f(weights, mid) < days:
+            elif self.shipContainer(weights, mid) < days:
                 right = mid - 1
         return left
+
+    def shipContainer(self, weights, container):
+        day = 0
+        free = container
+        for i in range(len(weights)):
+            if free - weights[i] >= 0:
+                free -= weights[i]
+            else:
+                free = container - weights[i]
+                day += 1
+        day += 1
+        return day
 
 
 solution = Solution()
