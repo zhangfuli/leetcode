@@ -6,7 +6,7 @@
 #         self.right = right
 class Solution:
     def flatten(self, root):
-        if root == None:
+        if root is None:
             return root
 
         self.flatten(root.left)
@@ -18,8 +18,9 @@ class Solution:
         root.left = None
         root.right = left
 
-
         p = root
-        while(p.right != None):
+        while p.right:
             p = p.right
         p.right = right
+
+        return root
