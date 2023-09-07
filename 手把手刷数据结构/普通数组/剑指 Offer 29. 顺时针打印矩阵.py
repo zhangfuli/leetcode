@@ -1,20 +1,17 @@
-# m * n 的二维数组 顺时针打印
 class Solution:
-    def printList(self, m, n):
-        if m == 0 or n == 0:
+    def spiralOrder(self, matrix):
+        if len(matrix) == 0 or len(matrix[0]) == 0:
             return []
-
-        num = [[i + j for j in range(n)] for i in range(m)]
-        print(num)
         res = []
         i, j = 0, 0
 
         # 起点
         a, b = 0, 0
-        row, col = len(num) - 1, len(num[0]) - 1
+        row, col = len(matrix) - 1, len(matrix[0]) - 1
+        m, n = (row + 1), (col + 1)
         k = 0
         while k < m * n:
-            res.append(num[i][j])
+            res.append(matrix[i][j])
 
             # 往右走
             if i == a and j < col:
@@ -41,8 +38,3 @@ class Solution:
 # 2 3 4 5
 # 3 4 5 6
 # 4 5 6 7
-
-
-if __name__ == '__main__':
-    solution = Solution()
-    print(solution.printList(5, 4))
